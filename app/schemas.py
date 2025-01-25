@@ -24,3 +24,14 @@ class LoadModelResponse(BaseModel):
 
 
 class TextRequestModel(models.RequestInfo): ...
+
+class CompletionRequest(BaseModel):
+    prompt: str
+    max_tokens: int = 100
+    temperature: float = 0.9
+    top_p: float = 0.95
+    top_k: int = 5
+    prompt_logprobs: int = 10
+    number_of_logprobs: int = 1
+    class Config:
+        extra = "allow"
